@@ -1,7 +1,9 @@
 package edu.unbosque.fourpawscitizens;
 
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("miguel gay");
+        JOptionPane.showConfirmDialog(null,"Miguel gay?");
     }
 }
