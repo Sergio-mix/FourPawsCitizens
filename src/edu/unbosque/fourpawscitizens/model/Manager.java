@@ -1,23 +1,39 @@
 package edu.unbosque.fourpawscitizens.model;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
+
 public class Manager {
-    Lector de CSVReader = nulo ;
-    public void leer(){
-        // analizar un archivo CSV en el constructor de la clase CSVReader
-        lector = nuevo CSVReader ( nuevo FileReader ( "C: \\ Users \ Dell \ Desktop \ csvDemo.csv" )) ;
-        String [] nextLine;
-        // lee una línea a la vez
-        while (( nextLine = reader. readNext ()) ! = null ) {
-            for ( String token: nextLine ) {
-                Sistema. fuera . imprimir ( token ) ;
-            }
-            Sistema. fuera . imprimir ( "\ n" ) ;
-        }
 
-    }
+    public static final String SEPARADOR = ",";
 
-    captura ( Excepción e ) {
-        mi. printStackTrace () ;
-    }
+   public void leer(){
+
+       BufferedReader bufferLectura = null;
+       try {
+           bufferLectura = new BufferedReader(new FileReader("archivo.csv"));
+           String linea = bufferLectura.readLine();
+           while (linea != null) {
+               String[] campos = linea.split(SEPARADOR);
+               System.out.println(Arrays.toString(campos));
+               linea = bufferLectura.readLine();
+           }
+       }
+       catch (IOException e) {
+           e.printStackTrace();
+       }
+       finally {
+           if (bufferLectura != null) {
+               try {
+                   bufferLectura.close();
+               }
+               catch (IOException e) {
+                   e.printStackTrace();
+               }
+           }
+       }
+   }
 }
 

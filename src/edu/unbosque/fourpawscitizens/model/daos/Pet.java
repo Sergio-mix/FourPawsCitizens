@@ -30,58 +30,114 @@ public class Pet {
         this.neighborhood = neighborhood;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public Long getMicrochip() {
         return microchip;
     }
 
+    /**
+     *
+     * @param microchip
+     */
     public void setMicrochip(Long microchip) {
         this.microchip = microchip;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSpecies() {
         return species;
     }
 
+    /**
+     *
+     * @param species
+     */
     public void setSpecies(String species) {
         this.species = species;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSex() {
         return sex;
     }
 
+    /**
+     *
+     * @param sex
+     */
     public void setSex(String sex) {
         this.sex = sex;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSize() {
         return size;
     }
 
+    /**
+     *
+     * @param size
+     */
     public void setSize(String size) {
         this.size = size;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isPotentDangerous() {
         return potentDangerous;
     }
 
+    /**
+     *
+     * @param potentDangerous
+     */
     public void setPotentDangerous(boolean potentDangerous) {
         this.potentDangerous = potentDangerous;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNeighborhood() {
         return neighborhood;
     }
 
+    /**
+     *
+     * @param neighborhood
+     */
     public void setNeighborhood(String neighborhood) {
         this.neighborhood = neighborhood;
     }
