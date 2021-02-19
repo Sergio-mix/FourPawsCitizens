@@ -12,15 +12,8 @@ public class Pet {
 
     /**
      *
-     * @param id
-     * @param microchip
-     * @param species
-     * @param sex
-     * @param size
-     * @param potentDangerous
-     * @param neighborhood
      */
-    public Pet(String id, Long microchip, String species, String sex, String size, boolean potentDangerous, String neighborhood) {
+    public Pet() {
         this.id = id;
         this.microchip = microchip;
         this.species = species;
@@ -140,5 +133,36 @@ public class Pet {
      */
     public void setNeighborhood(String neighborhood) {
         this.neighborhood = neighborhood;
+    }
+    public boolean soloNumeros(String cadena){
+        boolean mensaje;
+        try {
+            Integer.parseInt(cadena);
+            mensaje = true;
+        } catch (NumberFormatException e){
+            mensaje = false;
+        }
+
+
+        return mensaje;
+    }
+
+    public boolean soloLetras(String cadena){
+        boolean mensaje;
+        if (cadena.matches("[a-zA-Z]*")) {
+            mensaje = true;
+        } else {
+            mensaje = false;
+        }
+        return mensaje;
+    }
+    public boolean validarBoolean(String cadena) {
+        boolean mensaje;
+        if (cadena.matches("[0-9]*")) {
+            mensaje = true;
+        } else {
+            mensaje = false;
+        }
+        return mensaje;
     }
 }
