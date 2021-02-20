@@ -42,7 +42,7 @@ public class Manager {
         String newPotentDangerous = potentDangerous + "";
         String newsPotentDangerous = newPotentDangerous.substring(0, 1);
 
-        String id = newsMicroChip + "-" + newSpecies + "-" + newSex + "-" + newSize+ "-" + newsPotentDangerous + "-" + neighborhood;
+        String id = newsMicroChip + "-" + newSpecies +newSex +  newSize+ newsPotentDangerous + "-" + neighborhood;
         return id.toUpperCase();
     }
 
