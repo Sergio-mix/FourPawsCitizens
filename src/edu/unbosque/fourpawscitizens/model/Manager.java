@@ -1,38 +1,57 @@
 package edu.unbosque.fourpawscitizens.model;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import com.opencsv.CSVReader;
+import edu.unbosque.fourpawscitizens.model.daos.Pet;
+
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Manager {
 
-    public static final String SEPARADOR = ",";
+    public ArrayList<Pet> listPet;
+    public Pet pet;
 
-    public void leer() {
+    public Manager() {
 
-        BufferedReader bufferLectura = null;
+        listPet = new ArrayList<Pet>();
+        pet = new Pet();
+    }
+
+    /**
+     *
+     */
+    public void uploadData(String file) throws IOException {
+        char SEPARATOR = ';';
+        final char QUOTE = '"';
+        CSVReader reader = null;
         try {
-            bufferLectura = new BufferedReader(new FileReader("archivo.csv"));
-            String linea = bufferLectura.readLine();
-            while (linea != null) {
-                String[] campos = linea.split(SEPARADOR);
-                System.out.println(Arrays.toString(campos));
-                linea = bufferLectura.readLine();
+            reader = new CSVReader(new FileReader(file), SEPARATOR, QUOTE);
+            String[] nextLine = null;
+
+            while ((nextLine = reader.readNext()) != null) {
+                System.out.println(Arrays.toString(nextLine));
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println(e);
         } finally {
-            if (bufferLectura != null) {
-                try {
-                    bufferLectura.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            if (null != reader) {
+                reader.close();
             }
         }
     }
 
+    /**
+     *
+     * @param microChip
+     * @param species
+     * @param sex
+     * @param size
+     * @param potentDangerous
+     * @param neighborhood
+     * @return
+     */
     public String assignID(long microChip, String species, String sex, String size, boolean potentDangerous, String neighborhood) {
         String newMicroChip = microChip + "";
         String newsMicroChip = newMicroChip.substring(12, 15);
@@ -44,6 +63,22 @@ public class Manager {
 
         String id = newsMicroChip + "-" + newSpecies +newSex +  newSize+ newsPotentDangerous + "-" + neighborhood;
         return id.toUpperCase();
+    }
+
+    public long findByMicrochip(String id){
+
+    }
+
+    public String countBySpecies(String species){
+
+    }
+
+    public List findBypotentDangerousInNeighborhood(String ){
+
+    }
+
+    public List findByMultipleFields(){
+
     }
 
 }
