@@ -65,21 +65,21 @@ public class Manager {
         return id.toUpperCase();
     }
 
-    public long findByMicrochip(String id){
-
-    }
-
-    public String countBySpecies(String species){
-
-    }
-
-    public List findBypotentDangerousInNeighborhood(String ){
-
-    }
-
-    public List findByMultipleFields(){
-
-    }
+//    public long findByMicrochip(String id){
+//
+//    }
+//
+//    public String countBySpecies(String species){
+//
+//    }
+//
+//    public List findBypotentDangerousInNeighborhood(String ){
+//
+//    }
+//
+//    public List findByMultipleFields(){
+//
+//    }
 
 }
 
