@@ -1,7 +1,5 @@
 package edu.unbosque.fourpawscitizens.model.daos;
 
-import java.util.ArrayList;
-
 public class Pet {
 
     public String id;
@@ -12,11 +10,17 @@ public class Pet {
     public boolean potentDangerous;
     public String neighborhood;
 
-
     /**
      *
+     * @param id
+     * @param microchip
+     * @param species
+     * @param sex
+     * @param size
+     * @param potentDangerous
+     * @param neighborhood
      */
-    public Pet() {
+    public Pet(String id, Long microchip, String species, String sex, String size, boolean potentDangerous, String neighborhood) {
         this.id = id;
         this.microchip = microchip;
         this.species = species;

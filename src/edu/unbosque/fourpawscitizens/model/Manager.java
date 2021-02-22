@@ -6,17 +6,14 @@ import edu.unbosque.fourpawscitizens.model.daos.Pet;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Manager {
 
     public ArrayList<Pet> listPet;
-    public Pet pet;
+
 
     public Manager() {
-
         listPet = new ArrayList<Pet>();
-        pet = new Pet();
     }
 
     /**
@@ -31,19 +28,29 @@ public class Manager {
             String[] nextLine = null;
 
             while ((nextLine = reader.readNext()) != null) {
-                System.out.println(Arrays.toString(nextLine));
+//                System.out.println(Arrays.toString(nextLine));
+                try{
+                    boolean parametro;
+                    parametro = nextLine[4].equals("SI");
+                    Pet pet = new Pet("", Long.parseLong(nextLine[0]), nextLine[1], nextLine[2], nextLine[3], parametro, nextLine[5]);
+                    listPet.add(pet);
+                }catch (NumberFormatException e){
+                    System.out.println(e);
+                }
+                for (Pet pet : listPet) {
+                    System.out.println(pet.microchip);
+                }
             }
         } catch (Exception e) {
             System.out.println(e);
-        } finally {
-            if (null != reader) {
-                reader.close();
-            }
+        }
+        if (null != reader) {
+            reader.close();
         }
     }
 
+
     /**
-     *
      * @param microChip
      * @param species
      * @param sex
@@ -54,15 +61,20 @@ public class Manager {
      */
     public String assignID(long microChip, String species, String sex, String size, boolean potentDangerous, String neighborhood) {
         String newMicroChip = microChip + "";
-        String newsMicroChip = newMicroChip.substring(12, 15);
+        String potentialDanger;
+        int amount = 3;
+        String newsMicroChip = newMicroChip.substring(newMicroChip.length() - amount);
         String newSpecies = species.substring(0, 1);
         String newSex = sex.substring(0, 1);
         String newSize = size.substring(0, 1);
-        String newPotentDangerous = potentDangerous + "";
-        String newsPotentDangerous = newPotentDangerous.substring(0, 1);
-
-        String id = newsMicroChip + "-" + newSpecies +newSex +  newSize+ newsPotentDangerous + "-" + neighborhood;
-        return id.toUpperCase();
+        if (!potentDangerous) {
+            potentialDanger = "F";
+        } else {
+            potentialDanger = "T";
+        }
+        String id = newsMicroChip + "-" + newSpecies + newSex + newSize + potentialDanger + "-" + neighborhood;
+        System.out.println(id.toUpperCase());
+        return "El proceso de asignación de ids ha finalizado";
     }
 
 //    public long findByMicrochip(String id){
