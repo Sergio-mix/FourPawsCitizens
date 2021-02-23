@@ -1,11 +1,10 @@
 package edu.unbosque.fourpawscitizens.model;
 
 import com.opencsv.CSVReader;
-import edu.unbosque.fourpawscitizens.model.daos.Pet;
+import edu.unbosque.fourpawscitizens.model.dtos.Pet;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Manager {
 
@@ -36,9 +35,6 @@ public class Manager {
                     listPet.add(pet);
                 }catch (NumberFormatException e){
                     System.out.println(e);
-                }
-                for (Pet pet : listPet) {
-                    System.out.println(pet.microchip);
                 }
             }
         } catch (Exception e) {
@@ -73,8 +69,7 @@ public class Manager {
             potentialDanger = "T";
         }
         String id = newsMicroChip + "-" + newSpecies + newSex + newSize + potentialDanger + "-" + neighborhood;
-        System.out.println(id.toUpperCase());
-        return "El proceso de asignación de ids ha finalizado";
+        return id.toUpperCase();
     }
 
 //    public long findByMicrochip(String id){

@@ -1,25 +1,30 @@
 package edu.unbosque.fourpawscitizens;
 
 import edu.unbosque.fourpawscitizens.model.Manager;
-import edu.unbosque.fourpawscitizens.model.daos.Pet;
+import edu.unbosque.fourpawscitizens.model.dtos.Pet;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
+import java.util.function.UnaryOperator;
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
         Manager manager = new Manager();
         manager.uploadData("src\\data\\pets-citizens.csv");
-//        ArrayList<Pet> pets = new ArrayList<>();
-//        for (Pet pet : pets) {
-//            System.out.println(manager.assignID(pet.microchip,"FELINO","HEMBRA","PEQUEÑO",false,"USAQUEN"));
-//        }
-//            menu();
 
+//            menu();
+        ArrayList<Pet> pets = new ArrayList<>();
+        for (Pet pet : pets) {
+            Pet pet1 = new Pet(manager.assignID(pet.microchip, pet.species, pet.sex, pet.size, pet.potentDangerous, pet.neighborhood),
+                    pet.microchip, pet.species, pet.sex, pet.size, pet.potentDangerous, pet.neighborhood);
+            pets.replaceAll((UnaryOperator<Pet>) pet1);
+        }
+
+        for (Pet pet : pets) {
+            System.out.println(pet.id);
+        }
 
     }
 
