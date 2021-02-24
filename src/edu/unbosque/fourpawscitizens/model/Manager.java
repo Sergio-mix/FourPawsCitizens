@@ -31,10 +31,10 @@ public class Manager {
                 try{
                     boolean parametro;
                     parametro = nextLine[4].equals("SI");
-                    Pet pet = new Pet("", Long.parseLong(nextLine[0]), nextLine[1], nextLine[2], nextLine[3], parametro, nextLine[5]);
+                    Pet pet = new Pet(" ", Long.parseLong(nextLine[0]), nextLine[1], nextLine[2], nextLine[3], parametro, nextLine[5]);
                     listPet.add(pet);
                 }catch (NumberFormatException e){
-                    System.out.println(e);
+                    e.getSuppressed();
                 }
             }
         } catch (Exception e) {

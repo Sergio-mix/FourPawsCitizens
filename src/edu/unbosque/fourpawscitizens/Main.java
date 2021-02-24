@@ -16,15 +16,22 @@ public class Main {
 
 //            menu();
         ArrayList<Pet> pets = new ArrayList<>();
-        for (Pet pet : pets) {
-            Pet pet1 = new Pet(manager.assignID(pet.microchip, pet.species, pet.sex, pet.size, pet.potentDangerous, pet.neighborhood),
-                    pet.microchip, pet.species, pet.sex, pet.size, pet.potentDangerous, pet.neighborhood);
-            pets.replaceAll((UnaryOperator<Pet>) pet1);
-        }
 
-        for (Pet pet : pets) {
+            int po = 0;
+            int microchip = 0;
+//            for (int i = 0; i < pets.size(); i++) {
+//                if (pets.get(i).microchip == microchip)
+//                    String id = manager.assignID(pet1.microchip, pet1.species, pet1.sex, pet1.size, pet1.potentDangerous, pet1.neighborhood);
+//
+//                System.out.println(id);
+//            }
+
+
+        for (
+                Pet pet : pets) {
             System.out.println(pet.id);
         }
+
 
     }
 
