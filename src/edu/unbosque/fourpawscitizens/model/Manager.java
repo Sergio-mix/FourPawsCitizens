@@ -72,6 +72,8 @@ public class Manager {
         return id.toUpperCase();
     }
 
+
+
 //    public long findByMicrochip(String id){
 //
 //    }

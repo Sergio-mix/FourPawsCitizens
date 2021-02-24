@@ -5,35 +5,29 @@ import edu.unbosque.fourpawscitizens.model.dtos.Pet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.function.UnaryOperator;
 
 public class Main {
+    public static ArrayList <Pet> listPet;
+    static Manager manager;
+
     public static void main(String[] args) throws IOException {
 
-        Manager manager = new Manager();
+       manager = new Manager();
         manager.uploadData("src\\data\\pets-citizens.csv");
 
-//            menu();
-        ArrayList<Pet> pets = new ArrayList<>();
-
-            int po = 0;
-            int microchip = 0;
-//            for (int i = 0; i < pets.size(); i++) {
-//                if (pets.get(i).microchip == microchip)
-//                    String id = manager.assignID(pet1.microchip, pet1.species, pet1.sex, pet1.size, pet1.potentDangerous, pet1.neighborhood);
-//
-//                System.out.println(id);
-//            }
+            menu();
 
 
-        for (
-                Pet pet : pets) {
-            System.out.println(pet.id);
-        }
+
+
+
 
 
     }
+
 
     private static void menu() {
 
@@ -55,6 +49,11 @@ public class Main {
 
                 break;
             case 2:
+                long microchip;
+                System.out.printf("Generate ID of all pets");
+                microchip=leer.nextLong();
+                callId(microchip);
+
 
                 break;
             case 3:
@@ -68,5 +67,35 @@ public class Main {
                 break;
 
         }
+    }
+
+    public static String callId(long microchip){
+
+        listPet = new ArrayList<>();
+        manager = new Manager();
+        String id = null;
+        String sex= null;
+        String neighborhood= null;
+        String species= null;
+        String size=null;
+        boolean potentDangerous=false;
+
+
+        for (int i = 0; i < listPet.size(); i++) {
+            if (listPet.get(i).microchip == microchip){
+                listPet.get(i).getMicrochip();
+                sex=listPet.get(i).getSex();
+                neighborhood=listPet.get(i).getNeighborhood();
+                species=listPet.get(i).getSpecies();
+                size=listPet.get(i).getSize();
+                potentDangerous=listPet.get(i).isPotentDangerous();
+
+
+            }
+
+        }
+        id= manager.assignID(microchip, species, sex,size, potentDangerous,  neighborhood);
+
+        return id;
     }
 }
