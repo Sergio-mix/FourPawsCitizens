@@ -13,6 +13,9 @@ public class Main {
     public static Manager manager;
 
     public static void main(String[] args) throws IOException {
+        System.out.println(".: Bienvenido al programa FourPawsCitizens:."
+                + "\nSe trata de un programa que permite acceder y manipular datos de una lista de mascotas, cumpliendo unos requisitos básicos."
+                + "\nA través de este menú elija la opción que necesita");
         manager = new Manager();
         manager.uploadData("src\\data\\testCsv.csv");
 
@@ -24,16 +27,13 @@ public class Main {
 
         Scanner leer = new Scanner(System.in);
 
-        System.out.println(".: Welcome to the FourPawsCitizens program :."
-                + "\nThis is a program that allows you to access and manipulate this data, fulfilling some basic requirements."
-                + "\nThrough this menu choose the option you need");
-        System.out.println("Write the number of the option you need below"
-                + "\n1.See information of a pet"
-                + "\n2.Generate ID of all pets"
-                + "\n3.How many animals are there"
-                + "\n4.Given number of potentially dangerous animals in a locality."
-                + "\n5.Search pet by ID"
-                + "\n6.finalize");
+        System.out.println(""
+                + "\n1.Ver informacion de una mascota"
+                + "\n2.Generar iD de todas las mascotas"
+                + "\n3.Cuantos animales hay"
+                + "\n4.Número de animales potencialmente peligrosos en una localidad."
+                + "\n5.Buscar mascota por ID"
+                + "\n6.Finalizar");
         int opcion1 = leer.nextInt();
         switch (opcion1) {
             case 1:
@@ -50,6 +50,9 @@ public class Main {
                 }
 
                 System.out.printf("Generate ID of all pets");
+
+//                menu();
+
                 break;
             case 3:
 

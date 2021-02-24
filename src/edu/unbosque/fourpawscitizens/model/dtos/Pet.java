@@ -36,7 +36,7 @@ public class Pet {
      * @param cadena
      * @return
      */
-    public boolean soloNumeros(String cadena) {
+    public boolean onlyNumbers(String cadena) {
         boolean mensaje;
         try {
             Integer.parseInt(cadena);
@@ -51,7 +51,7 @@ public class Pet {
      * @param cadena
      * @return
      */
-    public boolean soloLetras(String cadena) {
+    public boolean onlyLetters(String cadena) {
         boolean mensaje;
         if (cadena.matches("[a-zA-Z]*")) {
             mensaje = true;
@@ -65,7 +65,7 @@ public class Pet {
      * @param cadena
      * @return
      */
-    public boolean validarBoolean(String cadena) {
+    public boolean validateBoolean(String cadena) {
         boolean mensaje;
         if (cadena.matches("[0-9]*")) {
             mensaje = true;
