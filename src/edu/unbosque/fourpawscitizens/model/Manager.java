@@ -12,13 +12,14 @@ public class Manager {
 
 
     public Manager() {
-        listPet = new ArrayList<Pet>();
+
     }
 
     /**
      *
      */
     public void uploadData(String file) throws IOException {
+        listPet = new ArrayList<Pet>();
         char SEPARATOR = ';';
         final char QUOTE = '"';
         CSVReader reader = null;
@@ -27,11 +28,9 @@ public class Manager {
             String[] nextLine = null;
 
             while ((nextLine = reader.readNext()) != null) {
-//                System.out.println(Arrays.toString(nextLine));
                 try{
-                    boolean parametro;
-                    parametro = nextLine[4].equals("SI");
-                    Pet pet = new Pet(" ", Long.parseLong(nextLine[0]), nextLine[1], nextLine[2], nextLine[3], parametro, nextLine[5]);
+                    boolean parametro = nextLine[4].equals("SI");
+                    Pet pet = new Pet("NO-ID", Long.parseLong(nextLine[0]), nextLine[1], nextLine[2], nextLine[3], parametro, nextLine[5]);
                     listPet.add(pet);
                 }catch (NumberFormatException e){
                     e.getSuppressed();
@@ -90,5 +89,12 @@ public class Manager {
 //
 //    }
 
+    public ArrayList<Pet> getListPet() {
+        return listPet;
+    }
+
+    public void setListPet(ArrayList<Pet> listPet) {
+        this.listPet = listPet;
+    }
 }
 

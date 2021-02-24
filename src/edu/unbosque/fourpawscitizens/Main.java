@@ -10,22 +10,13 @@ import java.util.Scanner;
 import java.util.function.UnaryOperator;
 
 public class Main {
-    public static ArrayList <Pet> listPet;
-    static Manager manager;
+    public static Manager manager;
 
     public static void main(String[] args) throws IOException {
+        manager = new Manager();
+        manager.uploadData("src\\data\\testCsv.csv");
 
-       manager = new Manager();
-        manager.uploadData("src\\data\\pets-citizens.csv");
-
-            menu();
-
-
-
-
-
-
-
+        menu();
     }
 
 
@@ -49,12 +40,16 @@ public class Main {
 
                 break;
             case 2:
-                long microchip;
+                for (int j = 0; j < manager.listPet.size(); j++) {
+                    String id = manager.assignID(manager.listPet.get(j).microchip, manager.listPet.get(j).species, manager.listPet.get(j).sex, manager.listPet.get(j).size, manager.listPet.get(j).potentDangerous, manager.listPet.get(j).neighborhood);
+                    manager.listPet.get(j).setId(id);
+                }
+
+                for (int i = 0; i < manager.listPet.size(); i++) {
+                    System.out.println(manager.listPet.get(i).id);
+                }
+
                 System.out.printf("Generate ID of all pets");
-                microchip=leer.nextLong();
-                callId(microchip);
-
-
                 break;
             case 3:
 
@@ -69,33 +64,33 @@ public class Main {
         }
     }
 
-    public static String callId(long microchip){
-
-        listPet = new ArrayList<>();
-        manager = new Manager();
-        String id = null;
-        String sex= null;
-        String neighborhood= null;
-        String species= null;
-        String size=null;
-        boolean potentDangerous=false;
-
-
-        for (int i = 0; i < listPet.size(); i++) {
-            if (listPet.get(i).microchip == microchip){
-                listPet.get(i).getMicrochip();
-                sex=listPet.get(i).getSex();
-                neighborhood=listPet.get(i).getNeighborhood();
-                species=listPet.get(i).getSpecies();
-                size=listPet.get(i).getSize();
-                potentDangerous=listPet.get(i).isPotentDangerous();
-
-
-            }
-
-        }
-        id= manager.assignID(microchip, species, sex,size, potentDangerous,  neighborhood);
-
-        return id;
-    }
+//    public static String callId(long microchip) {
+//
+//        listPet = new ArrayList<>();
+//        manager = new Manager();
+//        String id = null;
+//        String sex = null;
+//        String neighborhood = null;
+//        String species = null;
+//        String size = null;
+//        boolean potentDangerous = false;
+//
+//
+//        for (int i = 0; i < listPet.size(); i++) {
+//            if (listPet.get(i).microchip == microchip) {
+//                listPet.get(i).getMicrochip();
+//                sex = listPet.get(i).getSex();
+//                neighborhood = listPet.get(i).getNeighborhood();
+//                species = listPet.get(i).getSpecies();
+//                size = listPet.get(i).getSize();
+//                potentDangerous = listPet.get(i).isPotentDangerous();
+//
+//
+//            }
+//
+//        }
+//        id = manager.assignID(microchip, species, sex, size, potentDangerous, neighborhood);
+//
+//        return id;
+//    }
 }
