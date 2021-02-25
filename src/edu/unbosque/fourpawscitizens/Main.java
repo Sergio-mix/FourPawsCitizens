@@ -44,6 +44,10 @@ public class Main {
                 for (int j = 0; j < manager.listPet.size(); j++) {
                     String id = manager.assignID(manager.listPet.get(j).microchip, manager.listPet.get(j).species, manager.listPet.get(j).sex, manager.listPet.get(j).size, manager.listPet.get(j).potentDangerous, manager.listPet.get(j).neighborhood);
                     manager.listPet.get(j).setId(id);
+
+                }
+                for (int i = 0; i < manager.listPet.size(); i++) {
+                    System.out.println(manager.listPet.get(i).id);
                 }
 
                 System.out.printf("“El proceso de asignación de ids ha finalizado");
