@@ -57,31 +57,42 @@ public class Manager {
      * @return
      */
     public String assignID(long microChip, String species, String sex, String size, boolean potentDangerous, String neighborhood) {
-        String id = "";
-        try {
-            String newMicroChip = microChip + "";
-            String potentialDanger;
-            int amount = 3;
-            String newsMicroChip = newMicroChip.substring(newMicroChip.length() - amount);
-            String newSpecies = species.substring(0, 1);
-            String newSex = sex.substring(0, 1);
-            String newSize = size.substring(0, 1);
-            if (!potentDangerous) {
-                potentialDanger = "F";
-            } else {
-                potentialDanger = "T";
-            }
-            id = newsMicroChip + "-" + newSpecies + newSex + newSize + potentialDanger + "-" + neighborhood;
-
-            for (Pet pet : listPet) {
-                if (id.equals(pet.id)) {
-                    amount = amount + 1;
-                }
-            }
-        } catch (Exception e) {
-            System.out.println(e);
+        String newMicroChip = microChip + "";
+        String potentialDanger;
+        int amount = 3;
+        String newsMicroChip = newMicroChip.substring(newMicroChip.length() - amount);
+        String newSpecies = species.substring(0, 1);
+        String newSex = sex.substring(0, 1);
+        String newSize = size.substring(0, 1);
+        if (!potentDangerous) {
+            potentialDanger = "F";
+        } else {
+            potentialDanger = "T";
         }
-        return id.toUpperCase();
+
+
+//        String id = newsMicroChip + "-" + newSpecies + newSex + newSize + potentialDanger + "-" + neighborhood;
+//        return id.toUpperCase();
+//        try {
+//            String lista = "";
+//            boolean encontrado = false;
+//            for (int i = 0; i < listPet.size(); i++) {
+//                if (id.equals(listPet.get(i).id)) {
+//                    lista = lista + listPet.get(i).getId();
+//                    encontrado = true;
+//                    break;
+//                }
+//                return lista;
+//            }
+//
+//        }
+//        catch (IdentifierExistsException  e){
+//            System.out.println("Id ya existente");
+//        }
+//        finally{
+//
+//        }
+        return neighborhood;
     }
 
 
@@ -114,10 +125,26 @@ public class Manager {
                 "\nNeighborhood" + neighborhood;
         return mensaje;
     }
-//
-//    public String countBySpecies(String species){
-//
-//    }
+
+
+    public int countBySpecies(String species){
+
+        int cont=0;
+
+        for (int i = 0; i < listPet.size(); i++) {
+            if (listPet.get(i).species.equals(species)) {
+                species = listPet.get(i).species;
+                cont++;
+
+
+            }
+        }
+
+
+        return cont;
+
+
+    }
 //
 //    public List findBypotentDangerousInNeighborhood(String ){
 //
