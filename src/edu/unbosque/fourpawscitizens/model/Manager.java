@@ -3,12 +3,14 @@ package edu.unbosque.fourpawscitizens.model;
 import com.opencsv.CSVReader;
 import edu.unbosque.fourpawscitizens.model.dtos.Pet;
 
-import java.io.*;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Manager {
 
     public ArrayList<Pet> listPet;
+
 
 
     public Manager() {
@@ -72,10 +74,35 @@ public class Manager {
     }
 
 
+    public String findByMicrochip(long microchip) {
+        String mensaje = "";
+        String id = null;
+        String sex = null;
+        String neighborhood = null;
+        String species = null;
+        String size = null;
+        boolean potentDangerous = false;
 
-//    public long findByMicrochip(String id){
-//
-//    }
+        for (int i = 0; i < listPet.size(); i++) {
+            if (listPet.get(i).microchip == microchip) {
+                species = listPet.get(i).species;
+                id = listPet.get(i).id;
+                size = listPet.get(i).size;
+                neighborhood = listPet.get(i).neighborhood;
+                potentDangerous = listPet.get(i).potentDangerous;
+                sex = listPet.get(i).sex;
+
+            }
+        }
+
+        mensaje = "ID: " + id +
+                "\nSpecies: "+species+
+                "\nGender: "+sex+
+                "\nSize: "+size+
+                "\nPotentially Dangerous: "+potentDangerous+
+                "\nNeighborhood"+neighborhood;
+        return mensaje;
+    }
 //
 //    public String countBySpecies(String species){
 //
