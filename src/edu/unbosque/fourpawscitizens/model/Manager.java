@@ -1,6 +1,7 @@
 package edu.unbosque.fourpawscitizens.model;
 
 import com.opencsv.CSVReader;
+import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
 import edu.unbosque.fourpawscitizens.model.dtos.Pet;
 
 import java.io.FileReader;
@@ -10,7 +11,6 @@ import java.util.ArrayList;
 public class Manager {
 
     public ArrayList<Pet> listPet;
-
 
 
     public Manager() {
@@ -30,11 +30,11 @@ public class Manager {
             String[] nextLine = null;
 
             while ((nextLine = reader.readNext()) != null) {
-                try{
+                try {
                     boolean parametro = nextLine[4].equals("SI");
                     Pet pet = new Pet("NO-ID", Long.parseLong(nextLine[0]), nextLine[1], nextLine[2], nextLine[3], parametro, nextLine[5]);
                     listPet.add(pet);
-                }catch (NumberFormatException e){
+                } catch (NumberFormatException e) {
                     e.getSuppressed();
                 }
             }
@@ -69,8 +69,29 @@ public class Manager {
         } else {
             potentialDanger = "T";
         }
+
+
         String id = newsMicroChip + "-" + newSpecies + newSex + newSize + potentialDanger + "-" + neighborhood;
         return id.toUpperCase();
+        try {
+            String lista = "";
+            boolean encontrado = false;
+            for (int i = 0; i < listPet.size(); i++) {
+                if (id.equals(listPet.get(i).id)) {
+                    lista = lista + listPet.get(i).getId();
+                    encontrado = true;
+                    break;
+                }
+                return lista;
+            }
+
+        }
+        catch (IdentifierExistsException  e){
+            System.out.println("Id ya existente");
+        }
+        finally{
+
+        }
     }
 
 
@@ -96,11 +117,11 @@ public class Manager {
         }
 
         mensaje = "ID: " + id +
-                "\nSpecies: "+species+
-                "\nGender: "+sex+
-                "\nSize: "+size+
-                "\nPotentially Dangerous: "+potentDangerous+
-                "\nNeighborhood"+neighborhood;
+                "\nSpecies: " + species +
+                "\nGender: " + sex +
+                "\nSize: " + size +
+                "\nPotentially Dangerous: " + potentDangerous +
+                "\nNeighborhood" + neighborhood;
         return mensaje;
     }
 //
