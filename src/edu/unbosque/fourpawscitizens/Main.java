@@ -20,11 +20,8 @@ public class Main {
         System.out.println(".: Bienvenido al programa FourPawsCitizens:."
                 + "\nSe trata de un programa que permite acceder y manipular datos de una lista de mascotas, cumpliendo unos requisitos básicos."
                 + "\nA través de este menú elija la opción que necesita");
-
-
         manager = new Manager();
         manager.uploadData("src\\data\\pets-citizens.csv");
-
         menu();
     }
 

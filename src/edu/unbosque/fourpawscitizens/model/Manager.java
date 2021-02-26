@@ -28,12 +28,24 @@ public class Manager {
         try {
             reader = new CSVReader(new FileReader(file), SEPARATOR, QUOTE);
             String[] nextLine = null;
-
             while ((nextLine = reader.readNext()) != null) {
                 try {
                     boolean parametro = nextLine[4].equals("SI");
-                    Pet pet = new Pet("NO-ID", Long.parseLong(nextLine[0]), nextLine[1], nextLine[2], nextLine[3], parametro, nextLine[5]);
-                    listPet.add(pet);
+
+                    String nextLine2 = nextLine[0];
+                    String nextLine3 = nextLine[1];
+                    String nextLine4 = nextLine[2];
+                    String nextLine5 = nextLine[3];
+                    String nextLine6 = nextLine[5];
+
+                    if (!nextLine2.equals("SIN IDENTIFICAR")
+                            && !nextLine3.equals("SIN IDENTIFICAR")
+                            && !nextLine4.equals("SIN IDENTIFICAR")
+                            && !nextLine5.equals("SIN IDENTIFICAR")
+                            && !nextLine6.equals("SIN IDENTIFICAR")) {
+                        Pet pet = new Pet("NO-ID", Long.parseLong(nextLine[0]), nextLine[1], nextLine[2], nextLine[3], parametro, nextLine[5]);
+                        listPet.add(pet);
+                    }
                 } catch (NumberFormatException e) {
                     e.getSuppressed();
                 }
