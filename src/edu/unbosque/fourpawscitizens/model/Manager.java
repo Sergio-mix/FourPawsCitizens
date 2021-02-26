@@ -55,12 +55,11 @@ public class Manager {
      * @param neighborhood
      * @return
      */
-    public String assignID(long microChip, String species, String sex, String size, boolean potentDangerous, String neighborhood) {
+    public String assignID(long microChip, String species, String sex, String size, boolean potentDangerous, String neighborhood, int amount) {
         String id = "";
         try {
             String newMicroChip = microChip + "";
             String potentialDanger;
-            int amount = 3;
             String newsMicroChip = newMicroChip.substring(newMicroChip.length() - amount);
             String newSpecies = species.substring(0, 1);
             String newSex = sex.substring(0, 1);

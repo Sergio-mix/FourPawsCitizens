@@ -50,16 +50,32 @@ public class Main {
                 System.out.println(manager.findByMicrochip(microchip));
                 break;
             case 2:
+                int amount=3;
+
                 for (int j = 0; j < manager.listPet.size(); j++) {
-                    String id = manager.assignID(manager.listPet.get(j).microchip, manager.listPet.get(j).species, manager.listPet.get(j).sex, manager.listPet.get(j).size, manager.listPet.get(j).potentDangerous, manager.listPet.get(j).neighborhood);
+                    String  id = manager.assignID(manager.listPet.get(j).microchip, manager.listPet.get(j).species, manager.listPet.get(j).sex, manager.listPet.get(j).size, manager.listPet.get(j).potentDangerous, manager.listPet.get(j).neighborhood, amount);
+
+                    for (int i = 0; i < manager.listPet.size(); i++) {
+                        int auxAmount = amount;
+                        if (id.equals(manager.listPet.get(i).id)) {
+
+                            auxAmount++;
+                            id = manager.assignID(manager.listPet.get(j).microchip, manager.listPet.get(j).species, manager.listPet.get(j).sex, manager.listPet.get(j).size, manager.listPet.get(j).potentDangerous, manager.listPet.get(j).neighborhood, auxAmount);
+
+
+                        }
+                    }
+
                     manager.listPet.get(j).setId(id);
+
+
 
                 }
                 for (int i = 0; i < manager.listPet.size(); i++) {
                     System.out.println(manager.listPet.get(i).id);
                 }
 
-                System.out.println("“El proceso de asignación de ids ha finalizado");
+                System.out.printf("“El proceso de asignación de ids ha finalizado");
                 menu();
                 break;
             case 3:
