@@ -33,7 +33,7 @@ public class Main {
 
         Scanner leer = new Scanner(System.in);
 try {
-    System.out.println("" +
+    System.out.println("" + "\nMENU: "+
             "\n-----------------------------------------------------------------"
             + "\n1.Ver informacion de una mascota"
             + "\n2.Generar iD de todas las mascotas"
