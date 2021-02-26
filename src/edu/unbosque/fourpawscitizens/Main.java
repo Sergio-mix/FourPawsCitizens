@@ -2,7 +2,6 @@ package edu.unbosque.fourpawscitizens;
 
 import edu.unbosque.fourpawscitizens.model.Manager;
 
-import javax.sound.midi.Soundbank;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -32,6 +31,7 @@ public class Main {
         String yellow = "\033[33m";
         String blue = "\033[34m";
         String red = "\033[31m";
+        String purple = "\033[35m";
         Scanner leer = new Scanner(System.in);
         try {
 
@@ -56,12 +56,13 @@ public class Main {
                         System.out.println(yellow + manager.findByMicrochip(microchip));
                         menu();
                     } catch (NullPointerException e) {
-                        System.out.println("Por favor coloque valores correctos");
+                        System.out.println(red + "Por favor coloque valores correctos");
                         menu();
                     }
                     break;
 
                 case 2:
+                    System.out.println(yellow + "Procesando...");
                     int amount = 3;
                     for (int j = 0; j < manager.listPet.size(); j++) {
                         String id = manager.assignID(manager.listPet.get(j).microchip, manager.listPet.get(j).species, manager.listPet.get(j).sex, manager.listPet.get(j).size, manager.listPet.get(j).potentDangerous, manager.listPet.get(j).neighborhood, amount);
@@ -88,7 +89,7 @@ public class Main {
                         System.out.println(yellow + "El numero de animales de la especie " + specie.toUpperCase() + " es:" + manager.countBySpecies(specie.toUpperCase()));
                         menu();
                     } else {
-                        System.out.println(yellow + "Ingrese solamente si es CANINO o FELINO");
+                        System.out.println(red + "Ingrese solamente si es CANINO o FELINO");
                         menu();
                     }
 
@@ -96,26 +97,32 @@ public class Main {
 
                 case 4:
                     Scanner entradas = new Scanner(System.in);
-                    System.out.println("Ingrese la localidad");
-                    String localidad = entradas.nextLine();
-                    System.out.println("Ingrese la cantidad de animales");
-                    String numeroDeAnimales = entradas.nextLine();
-                    System.out.println("TOP o LAST");
-                    String posicion = entradas.nextLine();
+                    try {
+                        System.out.println("Ingrese la localidad");
+                        String localidad = entradas.nextLine();
+                        System.out.println("Ingrese la cantidad de animales");
+                        String numeroDeAnimales = entradas.nextLine();
+                        System.out.println("TOP o LAST");
+                        String posicion = entradas.nextLine();
 
-                    manager.findBypotentDangerousInNeighborhood(Integer.parseInt(numeroDeAnimales), posicion, localidad);
+                        manager.findBypotentDangerousInNeighborhood(Integer.parseInt(numeroDeAnimales), posicion, localidad);
 
-                    for (int j = 0; j < manager.pets2.size(); j++) {
+                        for (int j = 0; j < manager.pets2.size(); j++) {
 
-                        System.out.println(yellow + "\nID: " + manager.pets2.get(j).id +
-                                "\nSpecies: " + manager.pets2.get(j).species +
-                                "\nGender: " + manager.pets2.get(j).sex +
-                                "\nSize: " + manager.pets2.get(j).size +
-                                "\nPotentially Dangerous: " + manager.pets2.get(j).potentDangerous +
-                                "\nNeighborhood: " + manager.pets2.get(j).neighborhood);
+                            System.out.println(yellow + "\nID: " + manager.pets2.get(j).id +
+                                    "\nSpecies: " + manager.pets2.get(j).species +
+                                    "\nGender: " + manager.pets2.get(j).sex +
+                                    "\nSize: " + manager.pets2.get(j).size +
+                                    "\nPotentially Dangerous: " + manager.pets2.get(j).potentDangerous +
+                                    "\nNeighborhood: " + manager.pets2.get(j).neighborhood);
+                        }
+
+                        menu();
+                    } catch (NumberFormatException e) {
+                        System.out.println(red + "Por favor ingrese valores validos");
+                        menu();
                     }
 
-                    menu();
                     break;
 
                 case 5:
@@ -142,7 +149,7 @@ public class Main {
                         manager.findByMultipleFields(sex, species, size, peligrosidad);
                         menu();
                     } catch (ArrayIndexOutOfBoundsException e) {
-                        System.out.println("Por favor ingrese los valores como en el ejemplo");
+                        System.out.println(red + "Por favor ingrese los valores como en el ejemplo");
                         menu();
                     }
 
@@ -159,15 +166,15 @@ public class Main {
                     break;
 
                 case 7:
-                    System.out.println("Gracias por utilizar el programa FourPawsCitizens" +
-                            "\nHasta la proxima");
+                    System.out.println(purple + "Gracias por utilizar el programa FourPawsCitizens" +
+                            "\nHasta la proxima.");
                     break;
                 default:
-                    System.out.println("Por favor coloque el valor correctamente");
+                    System.out.println(red + "Por favor coloque el valor correctamente");
                     menu();
             }
         } catch (InputMismatchException e) {
-            System.out.println("Por favor coloque valores numericos enteros");
+            System.out.println(red + "Por favor coloque valores numericos enteros");
             menu();
 
         }
