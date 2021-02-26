@@ -6,7 +6,6 @@ import edu.unbosque.fourpawscitizens.model.dtos.Pet;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Manager {
 
@@ -119,12 +118,17 @@ public class Manager {
 
             }
         }
-        mensaje = "ID: " + id +
-                "\nSpecies: " + species +
-                "\nGender: " + sex +
-                "\nSize: " + size +
-                "\nPotentially Dangerous: " + potentDangerous +
-                "\nNeighborhood: " + neighborhood;
+        if(!id.equals(null) && !species.equals(null)){
+            mensaje = "ID: " + id +
+                    "\nSpecies: " + species +
+                    "\nGender: " + sex +
+                    "\nSize: " + size +
+                    "\nPotentially Dangerous: " + potentDangerous +
+                    "\nNeighborhood: " + neighborhood;
+        }else{
+            mensaje ="No se encontraron mascotas, por favor verifique el microchip";
+        }
+
         return mensaje;
     }
 
@@ -201,8 +205,15 @@ public class Manager {
         for (int i = 0; i < listPet.size(); i++) {
             if (listPet.get(i).sex.equals(sex) && listPet.get(i).species.equals(species)
                     && listPet.get(i).size.equals(size) && listPet.get(i).potentDangerous == potentDangerous) {
+
                 id = listPet.get(i).id;
-                System.out.println(id);
+                if (!id.equals("NO-ID")) {
+                    System.out.println(id);
+                }else{
+                    System.out.println("No se encontraron ID, verifique que anteriormente se hayan creado");
+                    break;
+                }
+
             }
         }
     }
