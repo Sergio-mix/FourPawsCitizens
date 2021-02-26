@@ -6,18 +6,19 @@ import edu.unbosque.fourpawscitizens.model.dtos.Pet;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Manager {
 
     public ArrayList<Pet> listPet;
-
 
     public Manager() {
 
     }
 
     /**
-     *
+     * @param file
+     * @throws IOException
      */
     public void uploadData(String file) throws IOException {
         listPet = new ArrayList<Pet>();
@@ -53,6 +54,7 @@ public class Manager {
      * @param size
      * @param potentDangerous
      * @param neighborhood
+     * @param amount
      * @return
      */
     public String assignID(long microChip, String species, String sex, String size, boolean potentDangerous, String neighborhood, int amount) {
@@ -82,7 +84,10 @@ public class Manager {
         return id.toUpperCase();
     }
 
-
+    /**
+     * @param microchip
+     * @return
+     */
     public String findByMicrochip(long microchip) {
         String mensaje = "";
         String id = null;
@@ -91,7 +96,6 @@ public class Manager {
         String species = null;
         String size = null;
         boolean potentDangerous = false;
-
         for (int i = 0; i < listPet.size(); i++) {
             if (listPet.get(i).microchip == microchip) {
                 species = listPet.get(i).species;
@@ -103,7 +107,6 @@ public class Manager {
 
             }
         }
-
         mensaje = "ID: " + id +
                 "\nSpecies: " + species +
                 "\nGender: " + sex +
@@ -113,31 +116,73 @@ public class Manager {
         return mensaje;
     }
 
-
-    public int countBySpecies(String species){
-
-        int cont=0;
-
+    /**
+     * @param species
+     * @return
+     */
+    public int countBySpecies(String species) {
+        int cont = 0;
         for (int i = 0; i < listPet.size(); i++) {
             if (listPet.get(i).species.equals(species)) {
                 species = listPet.get(i).species;
                 cont++;
+            }
+        }
+        return cont;
+    }
+
+    /**
+     * @param n
+     * @param top
+     * @param neighborhood
+     * @return
+     */
+    public String findBypotentDangerousInNeighborhood(int n, String top, String neighborhood) {
+        ArrayList<Pet> pets = new ArrayList<>();
+        String mensaje = null;
+        String id = null;
+        String sex = null;
+        long micro = 0;
+        String neighborhood1 = null;
+        String species = null;
+        String size = null;
+        boolean potentDangerous = false;
 
 
+        for (Pet pet : listPet) {
+            if (pet.potentDangerous && pet.neighborhood.equals(neighborhood.toUpperCase())) {
+                species = pet.species;
+                id = pet.id;
+                micro = pet.microchip;
+                size = pet.size;
+                neighborhood1 = pet.neighborhood;
+                potentDangerous = pet.potentDangerous;
+                sex = pet.sex;
+                Pet pett = new Pet(id, micro, species, sex, size, potentDangerous, neighborhood1);
+                pets.add(pett);
+            } else {
+                mensaje = "No hay animales peligrosos en la localidad";
+            }
+            for (Pet petr : pets) {
+                mensaje =
+                        "\nID: " + petr.id +
+                                "\nSpecies: " + petr.species +
+                                "\nGender: " + petr.sex +
+                                "\nSize: " + petr.size +
+                                "\nPotentially Dangerous: " + petr.potentDangerous +
+                                "\nNeighborhood: " + petr.neighborhood;
             }
         }
 
-
-        return cont;
-
-
+        return mensaje;
     }
 
-    //
-//    public List findBypotentDangerousInNeighborhood(String ){
-//
-//    }
-//
+    /**
+     * @param sex
+     * @param species
+     * @param size
+     * @param potentDangerous
+     */
     public void findByMultipleFields(String sex, String species, String size, boolean potentDangerous) {
         String mensaje;
         String id = "";
@@ -146,20 +191,8 @@ public class Manager {
                     && listPet.get(i).size.equals(size) && listPet.get(i).potentDangerous == potentDangerous) {
                 id = listPet.get(i).id;
                 System.out.println(id);
-
             }
         }
-
-
-
-    }
-
-    public ArrayList<Pet> getListPet() {
-        return listPet;
-    }
-
-    public void setListPet(ArrayList<Pet> listPet) {
-        this.listPet = listPet;
     }
 }
 

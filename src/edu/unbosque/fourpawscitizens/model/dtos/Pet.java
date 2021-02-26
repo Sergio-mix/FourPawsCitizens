@@ -75,6 +75,10 @@ public class Pet {
         return mensaje;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(String id) {
         this.id = id;
     }
