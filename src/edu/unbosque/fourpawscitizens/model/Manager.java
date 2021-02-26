@@ -6,10 +6,14 @@ import edu.unbosque.fourpawscitizens.model.dtos.Pet;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.ListIterator;
 
 public class Manager {
 
     public ArrayList<Pet> listPet;
+    public ArrayList<Pet> pets2;
 
     public Manager() {
 
@@ -118,15 +122,15 @@ public class Manager {
 
             }
         }
-        if(!id.equals(null) && !species.equals(null)){
+        if (!id.equals(null) && !species.equals(null)) {
             mensaje = "ID: " + id +
                     "\nSpecies: " + species +
                     "\nGender: " + sex +
                     "\nSize: " + size +
                     "\nPotentially Dangerous: " + potentDangerous +
                     "\nNeighborhood: " + neighborhood;
-        }else{
-            mensaje ="No se encontraron mascotas, por favor verifique el microchip";
+        } else {
+            mensaje = "No se encontraron mascotas, por favor verifique el microchip";
         }
 
         return mensaje;
@@ -153,17 +157,17 @@ public class Manager {
      * @param neighborhood
      * @return
      */
-    public String findBypotentDangerousInNeighborhood(int n, String top, String neighborhood) {
+    public ArrayList<Pet> findBypotentDangerousInNeighborhood(int n, String top, String neighborhood) {
         ArrayList<Pet> pets = new ArrayList<>();
-        String mensaje = null;
+        pets2 = new ArrayList<>();
         String id = null;
         String sex = null;
         long micro = 0;
         String neighborhood1 = null;
         String species = null;
         String size = null;
-        boolean potentDangerous = false;
-
+        boolean potentDangerous = true;
+        boolean condicion = true;
 
         for (Pet pet : listPet) {
             if (pet.potentDangerous && pet.neighborhood.equals(neighborhood.toUpperCase())) {
@@ -174,23 +178,47 @@ public class Manager {
                 neighborhood1 = pet.neighborhood;
                 potentDangerous = pet.potentDangerous;
                 sex = pet.sex;
+                condicion = true;
                 Pet pett = new Pet(id, micro, species, sex, size, potentDangerous, neighborhood1);
                 pets.add(pett);
             } else {
-                mensaje = "No hay animales peligrosos en la localidad";
-            }
-            for (Pet petr : pets) {
-                mensaje =
-                        "\nID: " + petr.id +
-                                "\nSpecies: " + petr.species +
-                                "\nGender: " + petr.sex +
-                                "\nSize: " + petr.size +
-                                "\nPotentially Dangerous: " + petr.potentDangerous +
-                                "\nNeighborhood: " + petr.neighborhood;
+                condicion = false;
             }
         }
 
-        return mensaje;
+        System.out.println(condicion);
+        if (top.toUpperCase().equals("TOP")) {
+            for (int i = 0; i < n; i++) {
+                species = pets.get(i).species;
+                id = pets.get(i).id;
+                micro = pets.get(i).microchip;
+                size = pets.get(i).size;
+                neighborhood1 = pets.get(i).neighborhood;
+                potentDangerous = pets.get(i).potentDangerous;
+                sex = pets.get(i).sex;
+                Pet pett = new Pet(id, micro, species, sex, size, potentDangerous, neighborhood1);
+                pets2.add(pett);
+            }
+        }
+
+
+        if (top.toUpperCase().equals("LAST")) {
+            Collections.reverse(listPet);
+            for (int i = 0; i < n; i++) {
+                species = pets.get(i).species;
+                id = pets.get(i).id;
+                micro = pets.get(i).microchip;
+                size = pets.get(i).size;
+                neighborhood1 = pets.get(i).neighborhood;
+                potentDangerous = pets.get(i).potentDangerous;
+                sex = pets.get(i).sex;
+                Pet pett = new Pet(id, micro, species, sex, size, potentDangerous, neighborhood1);
+                pets2.add(pett);
+            }
+        }
+
+
+        return pets2;
     }
 
     /**
@@ -200,17 +228,18 @@ public class Manager {
      * @param potentDangerous
      */
     public void findByMultipleFields(String sex, String species, String size, boolean potentDangerous) {
-        String mensaje;
         String id = "";
+        String yellow = "\033[33m";
+        String red = "\033[31m";
         for (int i = 0; i < listPet.size(); i++) {
             if (listPet.get(i).sex.equals(sex) && listPet.get(i).species.equals(species)
                     && listPet.get(i).size.equals(size) && listPet.get(i).potentDangerous == potentDangerous) {
 
                 id = listPet.get(i).id;
                 if (!id.equals("NO-ID")) {
-                    System.out.println(id);
-                }else{
-                    System.out.println("No se encontraron ID, verifique que anteriormente se hayan creado");
+                    System.out.println(yellow + id);
+                } else {
+                    System.out.println(red + "No se encontraron ID, verifique que anteriormente se hayan creado");
                     break;
                 }
 
