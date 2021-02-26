@@ -1,7 +1,6 @@
 package edu.unbosque.fourpawscitizens.model;
 
 import com.opencsv.CSVReader;
-import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
 import edu.unbosque.fourpawscitizens.model.dtos.Pet;
 
 import java.io.FileReader;
@@ -111,7 +110,7 @@ public class Manager {
                 "\nGender: " + sex +
                 "\nSize: " + size +
                 "\nPotentially Dangerous: " + potentDangerous +
-                "\nNeighborhood" + neighborhood;
+                "\nNeighborhood: " + neighborhood;
         return mensaje;
     }
 
@@ -134,14 +133,27 @@ public class Manager {
 
 
     }
-//
+
+    //
 //    public List findBypotentDangerousInNeighborhood(String ){
 //
 //    }
 //
-//    public List findByMultipleFields(){
-//
-//    }
+    public void findByMultipleFields(String sex, String species, String size, boolean potentDangerous) {
+        String mensaje;
+        String id = "";
+        for (int i = 0; i < listPet.size(); i++) {
+            if (listPet.get(i).sex.equals(sex) && listPet.get(i).species.equals(species)
+                    && listPet.get(i).size.equals(size) && listPet.get(i).potentDangerous == potentDangerous) {
+                id = listPet.get(i).id;
+                System.out.println(id);
+
+            }
+        }
+
+
+
+    }
 
     public ArrayList<Pet> getListPet() {
         return listPet;
