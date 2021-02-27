@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-/**Clase main
- * @author Miguel Sierra, Sergio Hernandez, Brayan Romero
+/**Clase Main
+ * @author Miguel Sierra, Sergio Hernandez, Brayan Moreno
  */
 
 public class Main {

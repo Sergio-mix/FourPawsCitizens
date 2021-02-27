@@ -1,6 +1,6 @@
 package edu.unbosque.fourpawscitizens.model.dtos;
 
-/**Clase main
+/**Clase Pet
  * @author Miguel Sierra, Sergio Hernandez, Brayan Moreno
  */
 public class Pet {
