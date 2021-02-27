@@ -59,14 +59,14 @@ public class Manager {
                     String nextLine5 = nextLine[3];
                     String nextLine6 = nextLine[5];
 
-//                    if (!nextLine2.equals("SIN IDENTIFICAR")
-//                            && !nextLine3.equals("SIN IDENTIFICAR")
-//                            && !nextLine4.equals("SIN IDENTIFICAR")
-//                            && !nextLine5.equals("SIN IDENTIFICAR")
-//                            && !nextLine6.equals("SIN IDENTIFICAR")) {
+                    if (!nextLine2.equals("")
+                            && !nextLine3.equals("")
+                            && !nextLine4.equals("")
+                            && !nextLine5.equals("")
+                            && !nextLine6.equals("")) {
                         Pet pet = new Pet("NO-ID", Long.parseLong(nextLine[0]), nextLine[1], nextLine[2], nextLine[3], parametro, nextLine[5]);
                         listPet.add(pet);
-//                    }
+                    }
                 } catch (NumberFormatException e) {
                     e.getSuppressed();
                 }
@@ -220,7 +220,7 @@ public class Manager {
             }
         }
 
-        System.out.println(condicion);
+
         if (top.toUpperCase().equals("TOP")) {
             for (int i = 0; i < n; i++) {
                 species = pets.get(i).species;
@@ -237,7 +237,7 @@ public class Manager {
 
 
         if (top.toUpperCase().equals("LAST")) {
-            Collections.reverse(listPet);
+            Collections.reverse(pets);
             for (int i = 0; i < n; i++) {
                 species = pets.get(i).species;
                 id = pets.get(i).id;

@@ -1,12 +1,11 @@
 # Taller de programación 1
 
-
 ## Autores ✒️
 
 _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
-* Brayan  - [LINK](https://github.com/bmorenor)
-* Miguel  - [LINK](https://github.com/MICKISS)
+ 
+* Brayan camilo Moreno - [LINK](https://github.com/bmorenor)
+* Miguel Angel Sierra Morales   - [LINK](https://github.com/MICKISS)
 * Sergio Alejandro Hernandez Zambrano - [LINK](https://github.com/Sergio-mix)
 
 ### Pre-requisitos 📋

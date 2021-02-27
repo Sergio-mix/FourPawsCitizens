@@ -32,6 +32,12 @@ public class Main {
                 + "\nA través de este menú elija la opción que necesita");
         manager = new Manager();
         manager.uploadData("src\\data\\pets-citizens.csv");
+
+        int total = 0;
+        for (int i = 0; i < manager.listPet.size(); i++) {
+            total++;
+        }
+        System.out.println(green + "\nLa cantidad de archivos cargados es: " + total);
         menu();
     }
 
