@@ -1,7 +1,7 @@
 package edu.unbosque.fourpawscitizens.model.dtos;
 
 /**Clase main
- * @author Miguel Sierra, Sergio Hernandez, Brayan Romero
+ * @author Miguel Sierra, Sergio Hernandez, Brayan Moreno
  */
 public class Pet {
 
@@ -16,7 +16,7 @@ public class Pet {
 
 
     /**Se crea el constructor de la clase
-     * <b>pre</b>Se definen los parametros que van a ir dentro del constructor
+     * <b>pre</b>Se definen los parametros que van a ir dentro del constructor<br>
      * <b>post</b>se crea el constructor Pet<br>
      * @param id
      * @param microchip
@@ -42,7 +42,7 @@ public class Pet {
 
 
      /**Se modifica la id
-     * 	 * <b>pre</b>Se definen los parametros que se van a evaluar
+     * 	 * <b>pre</b>Se definen los parametros que se van a evaluar<br>
      * 	 * <b>post</b>se especifica que id se va a modificar<br>
      * @param id
      */
