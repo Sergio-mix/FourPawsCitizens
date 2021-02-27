@@ -1,5 +1,8 @@
 package edu.unbosque.fourpawscitizens.model.dtos;
 
+/**Clase main
+ * @author Miguel Sierra, Sergio Hernandez, Brayan Romero
+ */
 public class Pet {
 
     public String id;
@@ -12,8 +15,9 @@ public class Pet {
 
 
 
-    /**
-     *
+    /**Se crea el constructor de la clase
+     * <b>pre</b>Se definen los parametros que van a ir dentro del constructor
+     * <b>post</b>se crea el constructor Pet<br>
      * @param id
      * @param microchip
      * @param species
@@ -32,51 +36,14 @@ public class Pet {
         this.neighborhood = neighborhood;
     }
 
-    /**
-     * @param cadena
-     * @return
-     */
-    public boolean onlyNumbers(String cadena) {
-        boolean mensaje;
-        try {
-            Integer.parseInt(cadena);
-            mensaje = true;
-        } catch (NumberFormatException e) {
-            mensaje = false;
-        }
-        return mensaje;
-    }
 
-    /**
-     * @param cadena
-     * @return
-     */
-    public boolean onlyLetters(String cadena) {
-        boolean mensaje;
-        if (cadena.matches("[a-zA-Z]*")) {
-            mensaje = true;
-        } else {
-            mensaje = false;
-        }
-        return mensaje;
-    }
 
-    /**
-     * @param cadena
-     * @return
-     */
-    public boolean validateBoolean(String cadena) {
-        boolean mensaje;
-        if (cadena.matches("[0-9]*")) {
-            mensaje = true;
-        } else {
-            mensaje = false;
-        }
-        return mensaje;
-    }
 
-    /**
-     *
+
+
+     /**Se modifica la id
+     * 	 * <b>pre</b>Se definen los parametros que se van a evaluar
+     * 	 * <b>post</b>se especifica que id se va a modificar<br>
      * @param id
      */
     public void setId(String id) {

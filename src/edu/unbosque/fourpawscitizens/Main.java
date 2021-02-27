@@ -7,13 +7,20 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**Clase main
+ * @author Miguel Sierra, Sergio Hernandez, Brayan Romero
+ */
+
 public class Main {
     public static Manager manager;
 
-    /**
+    /**Se genera el main con un mensaje de bienvenida
+     *      * <b>pre</b>Se definen las especificaciones del mensaje
+     *      * <b>post</b>se crea el mensaje y se carga el archivo csv Pet<br>
      * @param args
      * @throws IOException
      */
+
     public static void main(String[] args) throws IOException {
         String green = "\033[32m";
         System.out.println(green + ".: Bienvenido al programa FourPawsCitizens:."
