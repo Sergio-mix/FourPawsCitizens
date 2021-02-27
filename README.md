@@ -4,7 +4,7 @@
 
 _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
  
-* Brayan camilo Moreno - [LINK](https://github.com/bmorenor)
+* Brayan  Moreno - [LINK](https://github.com/bmorenor)
 * Miguel Angel Sierra Morales   - [LINK](https://github.com/MICKISS)
 * Sergio Alejandro Hernandez Zambrano - [LINK](https://github.com/Sergio-mix)
 
