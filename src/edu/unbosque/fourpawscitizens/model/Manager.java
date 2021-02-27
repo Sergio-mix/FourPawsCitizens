@@ -8,11 +8,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**Clase Manager
+/**
+ * Clase Manager
+ *
  * @author Miguel Sierra, Sergio Hernandez, Brayan Moreno
  */
 
-/**Se crean nuestras dos listas ambas de tipo Pet para alamacenar los diferente datos
+/**
+ * Se crean nuestras dos listas ambas de tipo Pet para alamacenar los diferente datos
  * <b>pre</b>debe existir la clase Pet para poder crear estos tipos de arraylist br>
  * <b>post</b>se crean los dos arraylist tipo Pet <br>
  */
@@ -30,9 +33,11 @@ public class Manager {
 
     }
 
-    /**Se crea el metodo para subir los datos
+    /**
+     * Se crea el metodo para subir los datos
      * <b>pre</b>Debe existir la lista que va a almacenar los datos del archivo cvs<br>
-     * <b>post</b>Se suben los datos del cvs al arraylist "listPet"<br>
+     * <b>post</b>Se suben los datos del cvs al arraylist "listPet pasando por un par de validaciones"<br>
+     *
      * @param file
      * @throws IOException
      */
@@ -54,14 +59,14 @@ public class Manager {
                     String nextLine5 = nextLine[3];
                     String nextLine6 = nextLine[5];
 
-                    if (!nextLine2.equals("SIN IDENTIFICAR")
-                            && !nextLine3.equals("SIN IDENTIFICAR")
-                            && !nextLine4.equals("SIN IDENTIFICAR")
-                            && !nextLine5.equals("SIN IDENTIFICAR")
-                            && !nextLine6.equals("SIN IDENTIFICAR")) {
+//                    if (!nextLine2.equals("SIN IDENTIFICAR")
+//                            && !nextLine3.equals("SIN IDENTIFICAR")
+//                            && !nextLine4.equals("SIN IDENTIFICAR")
+//                            && !nextLine5.equals("SIN IDENTIFICAR")
+//                            && !nextLine6.equals("SIN IDENTIFICAR")) {
                         Pet pet = new Pet("NO-ID", Long.parseLong(nextLine[0]), nextLine[1], nextLine[2], nextLine[3], parametro, nextLine[5]);
                         listPet.add(pet);
-                    }
+//                    }
                 } catch (NumberFormatException e) {
                     e.getSuppressed();
                 }
@@ -75,9 +80,11 @@ public class Manager {
     }
 
 
-    /**Se crea el metodo para asignar ID
+    /**
+     * Se crea el metodo para asignar ID
      * <b>pre</b>Recibir los valores de entrada que van a conformar ese ID<br>
      * <b>post</b>Se genera los ID con unas modificaciones y uniones de los valores de entradav<br>
+     *
      * @param microChip
      * @param species
      * @param sex
@@ -114,9 +121,11 @@ public class Manager {
         return id.toUpperCase();
     }
 
-    /**Se crea el metodo buscar por microchip
+    /**
+     * Se crea el metodo buscar por microchip
      * <b>pre</b>Recibir los valores de entrada tipo long que va a ser el microchip<br>
      * <b>post</b>Se muestra en pantalla el resultado de la busqueda que en este caso es todos los datos del animal<br>
+     *
      * @param microchip
      * @return
      */
@@ -153,9 +162,11 @@ public class Manager {
         return mensaje;
     }
 
-    /**se crea el metodo countBySpecies
+    /**
+     * se crea el metodo countBySpecies
      * <b>pre</b>Recibir los valores de tipo string que va a ser species para asi poder encontrar cuantos hay de esa especie<br>
      * <b>post</b>Se muestra en pantalla el numero de animales que hay de esa especie<br>
+     *
      * @param species
      * @return
      */
@@ -170,9 +181,11 @@ public class Manager {
         return cont;
     }
 
-    /**se crea el metodo findBypotentDangerousInNeighborhood
+    /**
+     * se crea el metodo findBypotentDangerousInNeighborhood
      * <b>pre</b>Recibir los valores de tipo string y int los cuales nos van a idicar si el usuario que saber si los primeros datos o los ultimos segun el int que digite<br>
      * <b>post</b>Se muestra en pantalla los datos extraidos de la lista tipo Pet segun lo digitado por el usuario<br>
+     *
      * @param n
      * @param top
      * @param neighborhood
@@ -242,9 +255,11 @@ public class Manager {
         return pets2;
     }
 
-    /**se crea el metodo findByMultipleFields
+    /**
+     * se crea el metodo findByMultipleFields
      * <b>pre</b>Recibir los valores de tipo string y boolean para poder buscar el ID de la mascota segun unos parametros<br>
      * <b>post</b>Se muestra en pantalla el ID segun los parametros digitados por el usuario<br>
+     *
      * @param sex
      * @param species
      * @param size
@@ -257,7 +272,6 @@ public class Manager {
         for (int i = 0; i < listPet.size(); i++) {
             if (listPet.get(i).sex.equals(sex) && listPet.get(i).species.equals(species)
                     && listPet.get(i).size.equals(size) && listPet.get(i).potentDangerous == potentDangerous) {
-
                 id = listPet.get(i).id;
                 if (!id.equals("NO-ID")) {
                     System.out.println(yellow + id);

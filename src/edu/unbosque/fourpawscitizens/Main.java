@@ -7,16 +7,20 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-/**Clase Main
+/**
+ * Clase Main
+ *
  * @author Miguel Sierra, Sergio Hernandez, Brayan Moreno
  */
 
 public class Main {
     public static Manager manager;
 
-    /**Se genera el main con un mensaje de bienvenida
+    /**
+     * Se genera el main con un mensaje de bienvenida
      * <b>pre</b>Se definen las especificaciones del mensaje<br>
      * <b>post</b>se crea el mensaje y se carga el archivo csv<br>
+     *
      * @param args
      * @throws IOException
      */
@@ -31,10 +35,10 @@ public class Main {
         menu();
     }
 
-    /** Se crea el menu de nuestro programa con los diferentes switch
+    /**
+     * Se crea el menu de nuestro programa con los diferentes switch
      * <b>pre</b>Se generan las especificaciones del menu y los diferentes casos del switch<br>
      * <b>post</b>se crea el menu y los diferentes casos del switch <br>
-     *
      */
     private static void menu() {
         String yellow = "\033[33m";
@@ -79,7 +83,8 @@ public class Main {
                     }
                     break;
 
-                /** Se crea el case 2
+                /**
+                 *  Se crea el case 2
                  * <b>pre</b>tener el metodo respectivo que se va a operar en este case<br>
                  * <b>post</b>valida y general las ideas del caso de haber una repetida se le suma otro numero el microchip<br>
                  */
@@ -100,7 +105,8 @@ public class Main {
                     System.out.println(yellow + "El proceso de asignación de ids ha finalizado");
                     menu();
                     break;
-                /** Se crea el case 3
+                /**
+                 *  Se crea el case 3
                  * <b>pre</b>tener el metodo respectivo que se va a operar en este case<br>
                  * <b>post</b>valida y busca la informacion del numero de animales segun lo que se halla digitado<br>
                  */
@@ -119,7 +125,8 @@ public class Main {
                     }
 
                     break;
-                /** Se crea el case 4
+                /**
+                 *  Se crea el case 4
                  * <b>pre</b>tener el metodo respectivo que se va a operar en este case<br>
                  * <b>post</b>valida el dato que se halla digitado para asi poder mostrar los datos del TOP U LAST de los datos ya almacenados<br>
                  */
@@ -152,7 +159,8 @@ public class Main {
                     }
 
                     break;
-                /** Se crea el case 5
+                /**
+                 *  Se crea el case 5
                  * <b>pre</b>tener el metodo respectivo que se va a operar en este case<br>
                  * <b>post</b>valida y busca la ID segun unos datos en especifico<br>
                  */
@@ -186,7 +194,8 @@ public class Main {
 
                     break;
 
-                /** Se crea el case 6
+                /**
+                 *  Se crea el case 6
                  * <b>pre</b>tener el metodo respectivo que se va a operar en este case<br>
                  * <b>post</b>Imprime todo los datos que hay en el csv<br>
                  */
@@ -200,7 +209,8 @@ public class Main {
                     menu();
                     break;
 
-                /** Se crea el case 7
+                /**
+                 * Se crea el case 7
                  * <b>pre</b>tener claro el mensaje que se va a dar <br>
                  * <b>post</b>finaliza el programa dando un mensaje de despedida y agracedimientos<br>
                  */
